@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_project/islami/sebha/sebha.dart';
 import '../utilits/app_colors.dart';
 import '../utilits/app_images.dart';
 import 'bottom_nav.dart';
@@ -20,6 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
     AppImages.timebg,
 
   ];
+  final List<Widget> screens = [
+    Center(child: Text("شاشة القرآن")),
+    Center(child: Text("شاشة الحديث")),
+    SebhaScreen(), // 👈 شاشة السبحة
+    Center(child: Text("شاشة الراديو")),
+    Center(child: Text("شاشة الوقت")),
+  ];
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -30,7 +38,8 @@ class _HomeScreenState extends State<HomeScreen> {
           height: double.infinity,
           fit: BoxFit.cover,
         ),
-        Scaffold(
+        Scaffold( body:
+        screens[selectedidex],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: selectedidex,
             onTap: (index) {
