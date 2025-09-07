@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami_project/islami/radio/radio_home.dart';
+import 'package:islami_project/islami/radio/radio_screen.dart';
 import 'package:islami_project/islami/sebha/sebha_screen.dart';
 import '../utilits/app_colors.dart';
 import '../utilits/app_images.dart';
@@ -24,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> screens = [
     Center(child: Text("شاشة القرآن")),
     Center(child: Text("شاشة الحديث")),
-    SebhaScreen(), // 👈 شاشة السبحة
-    Center(child: Text("شاشة الراديو")),
+    SebhaScreen(),
+    RadioHome(),
     Center(child: Text("شاشة الوقت")),
   ];
   @override
