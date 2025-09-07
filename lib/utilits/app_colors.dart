@@ -6,5 +6,5 @@ class AppColors {
   static const Color black = Color(0xFF202020);
   static const Color white = Color(0xFFFFFFFF);
   static const Color transpert = Colors.transparent;
-  static const Color blackbg = Colors.black;
+  static const Color blackbg = Color(0x99202020);
 }

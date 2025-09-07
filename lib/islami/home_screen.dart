@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_project/islami/sebha/sebha.dart';
+import 'package:islami_project/islami/sebha/sebha_screen.dart';
 import '../utilits/app_colors.dart';
 import '../utilits/app_images.dart';
 import 'bottom_nav.dart';
@@ -76,10 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget bottom({required int index, required String nameic}) {
     return selectedidex == index
         ? Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(66),
-        color: AppColors.black,
+        borderRadius: BorderRadius.circular(16),
+        color: AppColors.blackbg,
       ),
       child: ImageIcon(AssetImage(nameic)),
     )
