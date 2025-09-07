@@ -12,4 +12,5 @@ class AppImages {
   static const String sebhascreen = 'assets/images/SebhaBody.png';
   static const String sebhaconst = 'assets/images/sebha_const.png';
   static const String islamilogo = 'assets/images/islmi_logo.png';
+  static const String radioback = 'assets/images/radiobackg.png';
 }
