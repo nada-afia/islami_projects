@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami_project/islami/home_screen.dart';
+import 'package:islami_project/utilits/app_them.dart';
 
 import '../utilits/app_colors.dart';
 
@@ -43,66 +44,69 @@ class _IntroductionscreenState extends State<Introductionscreen> {
   final introkey=GlobalKey<IntroductionScreenState>();
   @override
   Widget build(BuildContext context) {
-    return IntroductionScreen(
-      key: introkey,
-      pages: pages.map((page) {
-        return PageViewModel(
-          titleWidget: Column(
-            children: [
-              const SizedBox(height: 30),
-              Image.asset('assets/images/islmi_logo.png', width: 250),
-            ],
-          ),
-          bodyWidget: Column(
-            children: [
-              const SizedBox(height: 35),
-              Center(
-                child: Image.asset(
-                  page.centerImage,
-                  width: 200,
-                ),
-              ),
-              const SizedBox(height: 60),
-              Text(
-                page.text1,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 18, color:AppColors.gold,fontWeight: FontWeight.bold),
-              ),
-              if (page.text2 != null && page.text2!.isNotEmpty) ...[
-                const SizedBox(height: 20),
-                Text(
-                  page.text2!,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: AppColors.gold,fontWeight: FontWeight.bold),
-                ),
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+    return SafeArea(
+      child: IntroductionScreen(
+        key: introkey,
+        pages: pages.map((page) {
+          return PageViewModel(
+            titleWidget: Column(
+              children: [
+                Image.asset('assets/images/islmi_logo.png', width:width*0.67,height: height*0.18,),
               ],
-            ],
-          ),
-          decoration: const PageDecoration(
-            titlePadding: EdgeInsets.zero,
-            bodyPadding: EdgeInsets.zero,
-            pageColor: AppColors.black,
-            imagePadding: EdgeInsets.zero,
-          ),
-        );
-      }).toList(),
-      showNextButton: true,
-      globalBackgroundColor: AppColors.black,
-      dotsDecorator: DotsDecorator(
-        activeColor: AppColors.gold,
-        color: Colors.grey,
+            ),
+            bodyWidget: Column(
+              children: [
+                Center(
+                  child: Image.asset(
+                    page.centerImage,
+                    width:width*0.92,
+                    height: height*0.44,
+                  ),
+                ),
+                const SizedBox(height: 60),
+                Text(
+                  page.text1,
+                  textAlign: TextAlign.center,
+                  style: Appthem.goldthem24.textTheme.headlineLarge,
+                ),
+                if (page.text2 != null && page.text2!.isNotEmpty) ...[
+                  const SizedBox(height: 20),
+                  Text(
+                    page.text2!,
+                    textAlign: TextAlign.center,
+                    style:  Appthem.goldthem20.textTheme.headlineLarge,
+                  ),
+                ],
+              ],
+            ),
+            decoration: const PageDecoration(
+              titlePadding: EdgeInsets.zero,
+              bodyPadding: EdgeInsets.zero,
+              pageColor: AppColors.black,
+              imagePadding: EdgeInsets.zero,
+            ),
+          );
+        }).toList(),
+        showNextButton: true,
+        globalBackgroundColor: AppColors.black,
+        dotsDecorator: DotsDecorator(
+          activeColor: AppColors.gold,
+          color: Colors.grey,
+        ),
+        showBackButton: true,
+        back: TextButton(onPressed: (){
+          introkey.currentState?.previous();
+        }, child: Text('Back',style: Appthem.goldthem16.textTheme.headlineLarge)),
+        next: TextButton(onPressed: (){
+          introkey.currentState?.next();
+        }, child: Text('Next',style: TextStyle(color: AppColors.gold))),
+        done: const Text('Finish', style: TextStyle(color: AppColors.gold)),
+        onDone: () {
+          Navigator.of(context).pushNamed(HomeScreen.routename);
+        },
       ),
-      showBackButton: true,
-      back: TextButton(onPressed: (){
-        introkey.currentState?.previous();
-      }, child: Text('Back',style: TextStyle(color: AppColors.gold))),
-      next: TextButton(onPressed: (){
-        introkey.currentState?.next();
-      }, child: Text('Next',style: TextStyle(color: AppColors.gold))),
-      done: const Text('Finish', style: TextStyle(color: AppColors.gold)),
-      onDone: () {
-        Navigator.of(context).pushNamed(HomeScreen.routename);
-      },
     );
   }
 }

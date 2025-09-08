@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_project/islami/Timer/timer_screen.dart';
 import 'package:islami_project/islami/radio/radio_home.dart';
 import 'package:islami_project/islami/radio/radio_screen.dart';
 import 'package:islami_project/islami/sebha/sebha_screen.dart';
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Center(child: Text("شاشة الحديث")),
     SebhaScreen(),
     RadioHome(),
-    Center(child: Text("شاشة الوقت")),
+    TimerScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -52,21 +53,21 @@ class _HomeScreenState extends State<HomeScreen> {
             items: [
               buildNavItem(
                 bottom(index: 0, nameic: AppImages.quranic),
-                'quran',
+                'Quran',
               ),
               buildNavItem(
                 bottom(index: 1, nameic: AppImages.hadethic),
-                'hadeth',
+                'Hadeth',
               ),
               buildNavItem(
                 bottom(index: 2, nameic: AppImages.sebhaic),
-                'sebha',
+                'Sebha',
               ),
               buildNavItem(
                 bottom(index: 3, nameic: AppImages.radioic),
-                'radio',
+                'Radio',
               ),
-              buildNavItem(bottom(index: 4, nameic: AppImages.timeic), 'time'),
+              buildNavItem(bottom(index: 4, nameic: AppImages.timeic), 'Time',),
 
             ],
           ),

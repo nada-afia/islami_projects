@@ -82,4 +82,40 @@ class Appthem {
       ),
     ),
   );
+  static final ThemeData whitethem12= ThemeData(
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: 'JannaLTBold',
+        color:  AppColors.white,
+        fontSize: 12,
+      ),
+    ),
+  );
+  static final ThemeData goldthem20= ThemeData(
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: 'JannaLTBold',
+        color:  AppColors.gold,
+        fontSize: 20,
+      ),
+    ),
+  );
+  static final ThemeData goldthem24= ThemeData(
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: 'JannaLTBold',
+        color:  AppColors.gold,
+        fontSize: 24,
+      ),
+    ),
+  );
+  static final ThemeData goldthem16= ThemeData(
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: 'JannaLTBold',
+        color:  AppColors.gold,
+        fontSize: 16,
+      ),
+    ),
+  );
 }
