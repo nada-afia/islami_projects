@@ -13,6 +13,7 @@ class AppImages {
   static const String sebhaconst = 'assets/images/sebha_const.png';
   static const String islamilogo = 'assets/images/islmi_logo.png';
   static const String radioback = 'assets/images/radiobackg.png';
+  static const String radioopen = 'assets/images/open.png';
   static const String praybg = 'assets/images/pray_background.png';
   static const String back = 'assets/images/back.png';
   static const String morning = 'assets/images/morning_azkar.png';

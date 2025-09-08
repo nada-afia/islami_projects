@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_project/islami/sebha/sebha_screen.dart';
 import 'package:islami_project/utilits/app_colors.dart';
+import 'package:islami_project/utilits/app_them.dart';
 import '../../utilits/app_images.dart';
 
 class RadioScreen extends StatefulWidget {
@@ -12,12 +13,13 @@ class RadioScreen extends StatefulWidget {
 class _RadioScreenState extends State<RadioScreen> {
   bool play=false;
   bool mute=false;
-  final List<String> radios =['Ibrahim Al-Akdar', 'Akram Alalaqmi','Majed Al-Enezi', 'Malik shaibat Alhamed'];
+  final List<String> radios =['Radio Ibrahim Al-Akdar','Radio Al-Qaria Yassen','Radio Ahmed Al-trabulsi', 'Radio Addokali Mohammad Alalim'];
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height  = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Container(
         color: AppColors.black,
@@ -35,33 +37,36 @@ class _RadioScreenState extends State<RadioScreen> {
                 child: Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
-                    Image.asset(AppImages.radioback,width:width*0.91,height: height*0.10,fit: BoxFit.cover,),
-                    Column(
-                      children: [
-                        Text(radios[index]),
-                        SizedBox(height: 30,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(onPressed: (){
-                              setState(() {
-                                play=!play;
-                              });
-                            }, icon:Icon(play ? CupertinoIcons.pause_solid
-                                : CupertinoIcons.play_arrow_solid,
-                              color: AppColors.black,))
-                            ,SizedBox(width: 10,),
-                            IconButton(onPressed: (){
-                              setState(() {
-                                mute=!mute;
-                              });
-                            }, icon:Icon(mute ? CupertinoIcons.volume_up
-                                : CupertinoIcons.volume_off
-                            ,color: AppColors.black,))
-      
-                          ],)
-      
-                      ],
+                    Image.asset(play?AppImages.radioopen:AppImages.radioback,width:width*0.91,height: height*0.10,fit: BoxFit.cover,),
+                    Positioned(
+                      top: 10,
+                      child: Column(
+                        children: [
+                          Text(radios[index],style: Appthem.black20.textTheme.headlineLarge,),
+                          SizedBox(height: 30,),
+                          Row(
+                           crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              IconButton(onPressed: (){
+                                setState(() {
+                                  play=!play;
+                                });
+                              }, icon:Icon(play ? CupertinoIcons.pause_solid
+                                  : CupertinoIcons.play_arrow_solid,
+                                color: AppColors.black,))
+                              ,SizedBox(width: 10,),
+                              IconButton(onPressed: (){
+                                setState(() {
+                                  mute=!mute;
+                                });
+                              }, icon:Icon(mute ? CupertinoIcons.volume_up
+                                  : CupertinoIcons.volume_off
+                              ,color: AppColors.black,))
+
+                            ],)
+
+                        ],
+                      ),
                     ),
                   ],
                 )

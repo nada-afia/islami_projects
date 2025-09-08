@@ -10,7 +10,7 @@ class Appthem {
           unselectedItemColor: AppColors.black
       )
   );
-  static final ThemeData black = ThemeData(
+  static final ThemeData black16 = ThemeData(
        textTheme: TextTheme(
          headlineLarge: TextStyle(
            fontFamily: 'JannaLTBold',
@@ -18,6 +18,15 @@ class Appthem {
            fontSize: 16,
          ),
        )
+  );
+  static final ThemeData black20 = ThemeData(
+      textTheme: TextTheme(
+        headlineLarge: TextStyle(
+          fontFamily: 'JannaLTBold',
+          color: Colors.black,
+          fontSize: 16,
+        ),
+      )
   );
   static final ThemeData whitethem16= ThemeData(
     textTheme: TextTheme(
