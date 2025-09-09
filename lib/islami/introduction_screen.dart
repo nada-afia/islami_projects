@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:islami_project/islami/home_screen.dart';
+import 'package:islami_project/utilits/app_routes.dart';
 import 'package:islami_project/utilits/app_them.dart';
 
 import '../utilits/app_colors.dart';
@@ -19,7 +20,7 @@ class Content {
 }
 
 class Introductionscreen extends StatefulWidget {
-  static String routename = 'intro';
+
   @override
   State<Introductionscreen> createState() => _IntroductionscreenState();
 }
@@ -104,7 +105,7 @@ class _IntroductionscreenState extends State<Introductionscreen> {
         }, child: Text('Next',style: TextStyle(color: AppColors.gold))),
         done: const Text('Finish', style: TextStyle(color: AppColors.gold)),
         onDone: () {
-          Navigator.of(context).pushNamed(HomeScreen.routename);
+          Navigator.of(context).pushNamed(AppRoutes.routeName);
         },
       ),
     );

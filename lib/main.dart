@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_project/islami/home_screen.dart';
+import 'package:islami_project/islami/quran/sura_details.dart';
 import 'package:islami_project/islami/radio/Reciters_Screen.dart';
 import 'package:islami_project/islami/radio/radio_screen.dart';
+import 'package:islami_project/utilits/app_routes.dart';
 import 'package:islami_project/utilits/app_them.dart';
 
 import 'islami/introduction_screen.dart';
@@ -18,10 +20,11 @@ class MyApp extends StatelessWidget {
         theme: Appthem.darkthem,
         debugShowCheckedModeBanner: false,
         home: Introductionscreen(),
-        initialRoute: Introductionscreen.routename,
+        initialRoute: AppRoutes.introductionScreen,
         routes:
-        {HomeScreen.routename:(context)=>HomeScreen(),
-          Introductionscreen.routename :(context)=>Introductionscreen(),
+        {AppRoutes.routeName:(context)=>HomeScreen(),
+          AppRoutes.introductionScreen :(context)=>Introductionscreen(),
+          AppRoutes.suraDetails :(context)=>SuraDetails(),
 
         });
 

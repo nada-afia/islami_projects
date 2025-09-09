@@ -18,5 +18,10 @@ class AppImages {
   static const String back = 'assets/images/back.png';
   static const String morning = 'assets/images/morning_azkar.png';
   static const String evening = 'assets/images/evening_azkar.png';
+  static const String quranicon = 'assets/images/quran-icon.png';
+  static const String quran  = 'assets/images/quran.png';
+  static const String suranum  = 'assets/images/sura-number.png';
+  static const String suraBackground  = 'assets/images/sura_background.png';
+
 
 }

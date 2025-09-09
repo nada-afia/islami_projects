@@ -8,7 +8,14 @@ class Appthem {
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: AppColors.white,
           unselectedItemColor: AppColors.black
-      )
+      ),
+    appBarTheme: AppBarTheme(
+      color: AppColors.black,
+      centerTitle: true,
+        iconTheme: IconThemeData(
+        color: AppColors.gold
+    )
+    )
   );
   static final ThemeData black16 = ThemeData(
        textTheme: TextTheme(
@@ -19,14 +26,42 @@ class Appthem {
          ),
        )
   );
+  static final ThemeData black24 = ThemeData(
+      textTheme: TextTheme(
+        headlineLarge: TextStyle(
+          fontFamily: 'JannaLTBold',
+          color: Colors.black,
+          fontSize: 24,
+        ),
+      )
+  );
+  static final ThemeData black14 = ThemeData(
+      textTheme: TextTheme(
+        headlineLarge: TextStyle(
+          fontFamily: 'JannaLTBold',
+          color: Colors.black,
+          fontSize: 14,
+        ),
+      )
+  );
   static final ThemeData black20 = ThemeData(
       textTheme: TextTheme(
         headlineLarge: TextStyle(
           fontFamily: 'JannaLTBold',
           color: Colors.black,
-          fontSize: 16,
+          fontSize: 20,
         ),
       )
+  );
+
+  static final ThemeData primarythem16= ThemeData(
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: 'JannaLTBold',
+        color:  AppColors.primary,
+        fontSize: 16,
+      ),
+    ),
   );
   static final ThemeData whitethem16= ThemeData(
     textTheme: TextTheme(
@@ -127,4 +162,5 @@ class Appthem {
       ),
     ),
   );
+
 }
