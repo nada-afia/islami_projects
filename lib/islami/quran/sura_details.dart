@@ -6,6 +6,9 @@ import 'package:islami_project/islami/quran/sura_content.dart';
 import 'package:islami_project/utilits/app_colors.dart';
 import 'package:islami_project/utilits/app_images.dart';
 import 'package:islami_project/utilits/app_them.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/most_recently_provider.dart';
 
 class SuraDetails extends StatefulWidget {
     SuraDetails({super.key});
@@ -16,12 +19,20 @@ class SuraDetails extends StatefulWidget {
 
 class _SuraDetailsState extends State<SuraDetails> {
   List<String>verses=[];
+  late MostRecentlyProvider mostRecentlyProvider;
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mostRecentlyProvider.getLastSura();
+  }
 
   @override
   Widget build(BuildContext context) {
     var width= MediaQuery.of(context).size.width;
     var height= MediaQuery.of(context).size.height;
     int index=ModalRoute.of(context)!.settings.arguments as int;
+     mostRecentlyProvider=Provider.of<MostRecentlyProvider>(context);
     if(verses.isEmpty) {
       readSuraFile(index);
     }

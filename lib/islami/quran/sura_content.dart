@@ -3,21 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:islami_project/utilits/app_colors.dart';
 import 'package:islami_project/utilits/app_them.dart';
 
+import '../../provider/most_recently_provider.dart';
+
 class SuraContent extends StatefulWidget {
   String content;
   int index;
   SuraContent({super.key,required this.content,required this.index});
-
   @override
   State<SuraContent> createState() => _SuraContentState();
 }
 
 class _SuraContentState extends State<SuraContent> {
   bool isClicked=false;
+
   @override
   Widget build(BuildContext context) {
     var width= MediaQuery.of(context).size.width;
     var height= MediaQuery.of(context).size.height;
+
     return InkWell(
       onTap: () {
         setState(() {

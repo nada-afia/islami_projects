@@ -47,67 +47,67 @@ class _IntroductionscreenState extends State<Introductionscreen> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: IntroductionScreen(
-        key: introkey,
-        pages: pages.map((page) {
-          return PageViewModel(
-            titleWidget: Column(
-              children: [
-                Image.asset('assets/images/islmi_logo.png', width:width*0.67,height: height*0.18,),
-              ],
-            ),
-            bodyWidget: Column(
-              children: [
-                Center(
-                  child: Image.asset(
-                    page.centerImage,
-                    width:width*0.92,
-                    height: height*0.44,
-                  ),
+    return IntroductionScreen(
+      key: introkey,
+      pages: pages.map((page) {
+        return PageViewModel(
+          titleWidget: Column(
+            children: [
+              Image.asset('assets/images/islmi_logo.png', width:width*0.67,height: height*0.18,),
+            ],
+          ),
+          bodyWidget: Column(
+            children: [
+              Center(
+                child: Image.asset(
+                  page.centerImage,
+                  width:width*0.92,
+                  height: height*0.44,
                 ),
-                const SizedBox(height: 60),
-                Text(
+              ),
+                SizedBox(height: height*0.02),
+
+              Text(
                   page.text1,
                   textAlign: TextAlign.center,
                   style: Appthem.goldthem24.textTheme.headlineLarge,
                 ),
-                if (page.text2 != null && page.text2!.isNotEmpty) ...[
-                  const SizedBox(height: 20),
-                  Text(
-                    page.text2!,
-                    textAlign: TextAlign.center,
-                    style:  Appthem.goldthem20.textTheme.headlineLarge,
-                  ),
-                ],
+
+              if (page.text2 != null && page.text2!.isNotEmpty) ...[
+                 SizedBox(height:height*0.02),
+                Text(
+                  page.text2!,
+                  textAlign: TextAlign.center,
+                  style:  Appthem.goldthem20.textTheme.headlineLarge,
+                ),
               ],
-            ),
-            decoration: const PageDecoration(
-              titlePadding: EdgeInsets.zero,
-              bodyPadding: EdgeInsets.zero,
-              pageColor: AppColors.black,
-              imagePadding: EdgeInsets.zero,
-            ),
-          );
-        }).toList(),
-        showNextButton: true,
-        globalBackgroundColor: AppColors.black,
-        dotsDecorator: DotsDecorator(
-          activeColor: AppColors.gold,
-          color: Colors.grey,
-        ),
-        showBackButton: true,
-        back: TextButton(onPressed: (){
-          introkey.currentState?.previous();
-        }, child: Text('Back',style: Appthem.goldthem16.textTheme.headlineLarge)),
-        next: TextButton(onPressed: (){
-          introkey.currentState?.next();
-        }, child: Text('Next',style: TextStyle(color: AppColors.gold))),
-        done: const Text('Finish', style: TextStyle(color: AppColors.gold)),
-        onDone: () {
-          Navigator.of(context).pushNamed(AppRoutes.routeName);
-        },
+            ],
+          ),
+          decoration: const PageDecoration(
+            titlePadding: EdgeInsets.zero,
+            bodyPadding: EdgeInsets.zero,
+            pageColor: AppColors.black,
+            imagePadding: EdgeInsets.zero,
+          ),
+        );
+      }).toList(),
+      showNextButton: true,
+      globalBackgroundColor: AppColors.black,
+      dotsDecorator: DotsDecorator(
+        activeColor: AppColors.gold,
+        color: Colors.grey,
       ),
+      showBackButton: true,
+      back: TextButton(onPressed: (){
+        introkey.currentState?.previous();
+      }, child: Text('Back',style: Appthem.goldthem16.textTheme.headlineLarge)),
+      next: TextButton(onPressed: (){
+        introkey.currentState?.next();
+      }, child: Text('Next',style: TextStyle(color: AppColors.gold))),
+      done: const Text('Finish', style: TextStyle(color: AppColors.gold)),
+      onDone: () {
+        Navigator.of(context).pushNamed(AppRoutes.routeName);
+      },
     );
   }
 }

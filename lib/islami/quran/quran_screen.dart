@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:islami_project/islami/quran/most_recently.dart';
+import 'package:islami_project/islami/quran/quran_resources.dart';
 import 'package:islami_project/islami/quran/sura-item.dart';
 import 'package:islami_project/utilits/app_colors.dart';
 import 'package:islami_project/utilits/app_routes.dart';
 import 'package:islami_project/utilits/app_them.dart';
+import 'package:islami_project/utilits/shared.dart';
 
 import '../../utilits/app_images.dart';
 
-class QuranScreen extends StatelessWidget {
-  const QuranScreen({super.key});
+class QuranScreen extends StatefulWidget {
+    QuranScreen({super.key});
+
+  @override
+  State<QuranScreen> createState() => _QuranScreenState();
+}
+
+class _QuranScreenState extends State<QuranScreen> {
+      List<int>searchList=List.generate(114, (index) => index,);
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +39,9 @@ class QuranScreen extends StatelessWidget {
                 ),
               ),
                TextField(
+                 onChanged: (value) {
+                     SearchByText(value);
+                 },
                  style: TextStyle(color: Colors.white),
                  decoration: InputDecoration(
                    prefixIcon: Padding(
@@ -37,6 +50,7 @@ class QuranScreen extends StatelessWidget {
                    ),
                    hintText: 'Sura Name',
                    hintStyle: Appthem.primarythem16.textTheme.headlineLarge,
+
                    filled: true,
                    fillColor: AppColors.blackbg,
                    enabledBorder: OutlineInputBorder(
@@ -56,42 +70,7 @@ class QuranScreen extends StatelessWidget {
                  ),
                ),
               SizedBox(height: height*0.02,),
-              Text(
-                'Most Recently',
-                style: Appthem.primarythem16.textTheme.headlineLarge,
-              ),
-              SizedBox(height: height*0.02,),
-              SizedBox(
-                height: height*0.18,
-                child: ListView.separated(
-                  padding: EdgeInsets.zero,
-                  scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.symmetric(horizontal: width*0.04),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: AppColors.gold
-                        ),
-                        child: Row(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Al-Anbiya',style: Appthem.black24.textTheme.headlineLarge,),
-                              Text('الأنبياء',style: Appthem.black24.textTheme.headlineLarge),
-                              Text('112 Verses',style: Appthem.black14.textTheme.headlineLarge)
-                            ],
-                          ),
-                            Image.asset(AppImages.quran)
-                          ],
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => SizedBox(width: width*0.02,),
-                    itemCount: 10),
-              ),
+               MostRecently(),
               SizedBox(height: height*0.02,),
               Text('Suras List',style: Appthem.primarythem16.textTheme.headlineLarge,),
               SizedBox(height: height*0.02,),
@@ -99,9 +78,11 @@ class QuranScreen extends StatelessWidget {
                    itemBuilder: (context, index) {
                     return InkWell(
                         onTap:() {
-                          Navigator.of(context).pushNamed(AppRoutes.suraDetails,arguments: index);
+                          saveLastSura(searchList[index]);
+                          Navigator.of(context).pushNamed(AppRoutes.suraDetails,
+                              arguments: searchList[index]);
                         }
-                        ,child: SuraItem(index: index));
+                        ,child: SuraItem(index: searchList[index]));
                    },
                    separatorBuilder: (BuildContext context, int index) {
                      return Divider(
@@ -110,11 +91,27 @@ class QuranScreen extends StatelessWidget {
                        endIndent: width*0.10,
                      );
                    },
-                   itemCount:114))
+                   itemCount:searchList.length))
             ],
           ),
         ),
       ),
     );
+  }
+
+  void SearchByText(String value) {
+    List<int> searchResult=[];
+    for(int i=0;i<QuranResources.englishQuranSurahs.length;i++){
+      if(QuranResources.englishQuranSurahs[i].toLowerCase().contains((value))){
+         searchResult.add(i);
+      }
+      if(QuranResources.arabicAuranSuras[i].toLowerCase().contains(value)){
+        searchResult.add(i);
+      }
+      searchList=searchResult;
+      setState(() {
+
+      });
+    }
   }
 }
