@@ -22,6 +22,7 @@ class AppImages {
   static const String quran  = 'assets/images/quran.png';
   static const String suranum  = 'assets/images/sura-number.png';
   static const String suraBackground  = 'assets/images/sura_background.png';
+  static const String hadethBackground  = 'assets/images/hadeth_background.png';
 
 
 }

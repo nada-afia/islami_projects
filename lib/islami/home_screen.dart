@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_project/islami/Timer/timer_screen.dart';
+import 'package:islami_project/islami/hadeth/hadeth_screen.dart' hide AppColors;
 import 'package:islami_project/islami/quran/quran_screen.dart';
 import 'package:islami_project/islami/radio/radio_home.dart';
 import 'package:islami_project/islami/radio/radio_screen.dart';
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   final List<Widget> screens = [
     QuranScreen(),
-    Center(child: Text("شاشة الحديث")),
+    HadethScreen(),
     SebhaScreen(),
     RadioHome(),
     TimerScreen()
