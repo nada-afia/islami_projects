@@ -26,6 +26,15 @@ class Appthem {
          ),
        )
   );
+  static final ThemeData black = ThemeData(
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        fontFamily: 'JannaLTBold',
+        color: Colors.black,
+        fontSize: 16,
+      ),
+    ),
+  );
   static final ThemeData black24 = ThemeData(
       textTheme: TextTheme(
         headlineLarge: TextStyle(
